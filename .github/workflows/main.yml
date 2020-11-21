@@ -2,13 +2,11 @@
 
 name: Gatsby Delopy
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    - dev
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,10 +18,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
 
       - name: Gatsby Publish
         uses: enriikke/gatsby-gh-pages-action@v2.1.1
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
-
