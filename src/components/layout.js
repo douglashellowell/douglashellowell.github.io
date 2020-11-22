@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
+import { ThemeContext } from "../contexts/theme"
 import { GlobalStyle } from "../themes/GlobalStyle"
 
 const Layout = ({ location, title, children }) => {
+  const { theme } = useContext(ThemeContext)
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -23,7 +25,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle theme={theme} />
       <div className="global-wrapper" data-is-root-path={isRootPath}>
         <header className="global-header">{header}</header>
         <main>{children}</main>
