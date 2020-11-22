@@ -2,39 +2,17 @@
 title: Dougs First Post
 date: "2020-11-21 12:43"
 description: "Hello World"
+tags: ["sdsd"]
 ---
 
-## Testing
+## Hello World!
 
-```js
-function test() {
-  return true // 👈 see this bit? this is the cool bit
+My name is Douglas Hellowell. I'm a graduate-turned-tutor at [Northcoders, a coding bootcamp in Manchester in England](http://northcoders.com/).
+
+Watch this space - i'm planning to post about things i'm making, things i've learnt, and random thoughts and things from my life
+
+```jsx
+const Button = ({ func }) => {
+  return <button onClick={func}>Click me!</button>
 }
 ```
-
-Give practice first (15 mins)
-
-# 60 mins
-
-Review, phone on zoom(?)
-Ask for a walkthrough of code - ask what they’ve done and why
-
-Any questions about the course in general
-
-Practice round:
-
-- 15 mins
-- doesn’t matter if you don’t finish
-- just to get used to the site
-- console logs should appear in the right hand side.
-
-Remember:
-
-- 45 mins
-- 7 questions
-- If you get stuck - move on and come back to it
-- You can use google and your own notes (but don’t just copy paste!)
-- You can ask for hints if you get stuck
-- We’ll have a chat about your code afterwards 🕺
-
-![old boat](43XiQRb.jpg)

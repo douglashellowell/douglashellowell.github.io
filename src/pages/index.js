@@ -1,15 +1,11 @@
-import React, { useContext } from "react"
-import { ThemeContext } from "../contexts/theme"
+import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogIndex = props => {
-  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext)
-  const { data, location } = props
-  console.log(props)
+const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -30,11 +26,11 @@ const BlogIndex = props => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <button onClick={toggleDarkMode}>Toggle me</button>
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
+          const tags = post.frontmatter.tags || []
 
           return (
             <li key={post.fields.slug}>
@@ -50,6 +46,9 @@ const BlogIndex = props => {
                     </Link>
                   </h2>
                   <small>{post.frontmatter.date}</small>
+                  {tags.map(tag => {
+                    return <p>{tag}</p>
+                  })}
                 </header>
                 <section>
                   <p
@@ -87,6 +86,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          tags
         }
       }
     }
